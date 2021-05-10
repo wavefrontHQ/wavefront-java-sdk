@@ -593,7 +593,7 @@ public class WavefrontDirectIngestionClient implements WavefrontSender, Runnable
       if (item == null) {
         break;
       }
-      int numBytes = item.getBytes().length;
+      int numBytes = item.getBytes(StandardCharsets.UTF_8).length;
       if (numBytes > messageSizeBytes) {
         logger.log(LogMessageType.MESSAGE_SIZE_LIMIT_EXCEEDED.toString(), Level.WARNING,
             "Dropping data larger than " + messageSizeBytes + " bytes: " + item + ". Consider " +
